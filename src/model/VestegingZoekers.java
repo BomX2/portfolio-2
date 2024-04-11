@@ -1,12 +1,12 @@
 package model;
 
-abstract class VestegingZoekers extends gebruiker{
+abstract class VestegingZoekers extends Gebruiker{
 
     String naam;
     String landVanHerkomst;
 
     public VestegingZoekers(String naam, String landVanHerkomst){
-        this.naam = naam;
+        super(naam);
         this.landVanHerkomst = landVanHerkomst;
     }
 

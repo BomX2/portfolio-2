@@ -1,5 +1,7 @@
 package model;
 
+import menu.Menu;
+
 public class asielzoeker extends VestegingZoekers{
     public asielzoeker(String naam, String landVanHerkomst) {
         super(naam, landVanHerkomst);
@@ -18,5 +20,10 @@ public class asielzoeker extends VestegingZoekers{
     @Override
     public void nieuwAdress() {
 
+    }
+
+    @Override
+    public Menu getMenu() {
+        return null;
     }
 }
