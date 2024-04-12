@@ -16,7 +16,9 @@ public class CaoMedewerker extends Gebruiker {
 
     public void registreerVluchteling (Dossier dossier) {
         dossiers.add(dossier);
-
+        String naam = dossier.getNaam();
+        String land = dossier.getLandVanHerkomst();
+        Asielzoeker asielzoeker = new Asielzoeker(naam,land,dossier);
     }
 
     @Override

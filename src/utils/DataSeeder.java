@@ -34,11 +34,14 @@ public class DataSeeder {
 
 
     private void initialize () {
-        CaoMedewerker cao = new CaoMedewerker("jan");
-        voegMedewerkerToe(cao);
 
-        Asielzoeker asielzoeker = new Asielzoeker("mohammad","israel");
+        Dossier dossierM = new Dossier("mohammad","israel",false);
+        Asielzoeker asielzoeker = new Asielzoeker("mohammad","israel",dossierM);
         voegAsielzoekerToe(asielzoeker);
+
+        CaoMedewerker cao = new CaoMedewerker("jan");
+        cao.registreerVluchteling(dossierM);
+        voegMedewerkerToe(cao);
 
         Beheerder beheerder = new Beheerder("sarah");
         voegBeheerderToe(beheerder);
@@ -77,6 +80,7 @@ public class DataSeeder {
 
         Menu vluchtelingMenu = new Menu("u bent ingelogd als asielzoeker");
         Menukeuze gegevens = new Menukeuze("vraag gegevens op", new ActieRegistreer());
+        Menukeuze dossier = new Menukeuze("vraag dossier op", new ActieExit());
         Menukeuze nieuwAdress = new Menukeuze("registreer nieuw adress", new ActieRegistreer());
         vluchtelingMenu.voegMenukeuzeToe(gegevens);
         vluchtelingMenu.voegMenukeuzeToe(nieuwAdress);
