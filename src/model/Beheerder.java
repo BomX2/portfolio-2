@@ -11,6 +11,9 @@ public class Beheerder extends Gebruiker{
     public void voegLandToe (){
 
     }
+    public void isVeilig (){
+
+    }
     @Override
     public void vraagOp() {
 

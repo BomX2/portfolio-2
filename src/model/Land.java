@@ -1,10 +1,10 @@
 package model;
 
-public class land {
+public class Land {
     private String naam;
     private boolean veilig;
 
-    public land (String naam,boolean veilig){
+    public Land(String naam, boolean veilig){
         this.naam = naam;
         this.veilig = veilig;
     }

@@ -56,4 +56,7 @@ public class Azc {
     public void setVluchtelingen(ArrayList<Asielzoeker> vluchtelingen) {
         this.vluchtelingen = vluchtelingen;
     }
+    public void voegVluchtelingToe (Asielzoeker asielzoeker){
+        vluchtelingen.add(asielzoeker);
+    }
 }

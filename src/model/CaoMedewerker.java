@@ -8,14 +8,14 @@ import java.util.ArrayList;
 
 public class CaoMedewerker extends Gebruiker {
 
-    private ArrayList<Dossier> dossiers;
+    private ArrayList<Asielzoeker> asielzoekers;
     public CaoMedewerker(String naam) {
         super(naam);
-        dossiers = new ArrayList<>();
+        asielzoekers = new ArrayList<>();
     }
 
     public void registreerVluchteling (Dossier dossier) {
-        dossiers.add(dossier);
+
         String naam = dossier.getNaam();
         String land = dossier.getLandVanHerkomst();
         Asielzoeker asielzoeker = new Asielzoeker(naam,land,dossier);

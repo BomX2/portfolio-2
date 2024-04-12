@@ -9,6 +9,9 @@ public class DataSeeder {
     private static DataSeeder instance = null;
     private ArrayList<Menu> menus;
     private ArrayList<Gebruiker> gebruikers;
+    private ArrayList<Land> landen;
+    private ArrayList<Gemeente> gemeentes;
+
 
     private void voegGebruikerToe (Gebruiker gebruiker) {
 
@@ -55,8 +58,8 @@ public class DataSeeder {
 
         Menu caoMenu = new Menu("u bent ingelogd als Cao medewerker");
         Menukeuze registreer = new Menukeuze("registreer een vluchteling", new ActieRegistreer());
-        Menukeuze werkDosierBij = new Menukeuze("werk dossier bij",new ActieRegistreer());
-        Menukeuze vraagOpC = new Menukeuze("gemeente opvragen", new ActieRegistreer());
+        Menukeuze werkDosierBij = new Menukeuze("werk dossier bij",new ActieWerkBij());
+        Menukeuze vraagOpC = new Menukeuze("gemeente opvragen", new ActieVraagOpC());
         Menukeuze logout = new Menukeuze(9,"logout",true,new ActieLogout());
         caoMenu.voegMenukeuzeToe(werkDosierBij);
         caoMenu.voegMenukeuzeToe(registreer);
@@ -66,10 +69,10 @@ public class DataSeeder {
 
 
         Menu beheerderMenu = new Menu("u bent ingelogd als beheerder");
-        Menukeuze voegLand = new Menukeuze("voeg een nieuw land toe", new ActieRegistreer());
-        Menukeuze veilig = new Menukeuze("wijzig veiligheid van een land", new ActieRegistreer());
-        Menukeuze voegGemeente = new Menukeuze("voeg een nieuwe gemeente toe", new ActieRegistreer());
-        Menukeuze vraagOpB = new Menukeuze("vraag rapportage op van een gemeente", new ActieRegistreer());
+        Menukeuze voegLand = new Menukeuze("voeg een nieuw land toe", new ActieVoegLand());
+        Menukeuze veilig = new Menukeuze("wijzig veiligheid van een land", new ActieVeilig());
+        Menukeuze voegGemeente = new Menukeuze("voeg een nieuwe gemeente toe", new ActieGemeente());
+        Menukeuze vraagOpB = new Menukeuze("vraag rapportage op van een gemeente", new ActieVraagOpB());
         beheerderMenu.voegMenukeuzeToe(voegLand);
         beheerderMenu.voegMenukeuzeToe(veilig);
         beheerderMenu.voegMenukeuzeToe(voegGemeente);
@@ -79,10 +82,11 @@ public class DataSeeder {
 
 
         Menu vluchtelingMenu = new Menu("u bent ingelogd als asielzoeker");
-        Menukeuze gegevens = new Menukeuze("vraag gegevens op", new ActieRegistreer());
+        Menukeuze gegevens = new Menukeuze("vraag gegevens op", new ActieGegevens());
         Menukeuze dossier = new Menukeuze("vraag dossier op", new ActieExit());
-        Menukeuze nieuwAdress = new Menukeuze("registreer nieuw adress", new ActieRegistreer());
+        Menukeuze nieuwAdress = new Menukeuze("registreer nieuw adress", new ActieAdress());
         vluchtelingMenu.voegMenukeuzeToe(gegevens);
+        vluchtelingMenu.voegMenukeuzeToe(dossier);
         vluchtelingMenu.voegMenukeuzeToe(nieuwAdress);
         vluchtelingMenu.voegMenukeuzeToe(logout);
         menus.add(vluchtelingMenu);
@@ -91,6 +95,8 @@ public class DataSeeder {
     private DataSeeder(){
         this.menus = new ArrayList<>();
         this.gebruikers = new ArrayList<>();
+        this.landen = new ArrayList<>();
+        this.gemeentes = new ArrayList<>();
         initialize();
     }
 
