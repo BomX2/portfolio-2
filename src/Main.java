@@ -1,5 +1,3 @@
-package model;
-
 import utils.*;
 import menu.*;
 

@@ -7,7 +7,7 @@ public class Azc {
     private int nummer;
     private String postcode;
     private Gemeente gemeente;
-    private ArrayList<VestegingZoekers> vluchtelingen;
+    private ArrayList<Asielzoeker> vluchtelingen;
 
     public Azc (String straat,int nummer,String postcode, Gemeente gemeente) {
         this.straat = straat;
@@ -33,7 +33,7 @@ public class Azc {
         return straat;
     }
 
-    public ArrayList<VestegingZoekers> getVluchtelingen() {
+    public ArrayList<Asielzoeker> getVluchtelingen() {
         return vluchtelingen;
     }
 
@@ -53,7 +53,7 @@ public class Azc {
         this.straat = straat;
     }
 
-    public void setVluchtelingen(ArrayList<VestegingZoekers> vluchtelingen) {
+    public void setVluchtelingen(ArrayList<Asielzoeker> vluchtelingen) {
         this.vluchtelingen = vluchtelingen;
     }
 }

@@ -1,6 +1,6 @@
 package menu;
 
-public class menubeheerder implements IActie {
+public class ActieRegistreer implements IActie{
     @Override
     public void voerActieUit() {
 

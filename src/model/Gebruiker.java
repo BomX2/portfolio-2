@@ -16,9 +16,10 @@ public abstract class Gebruiker {
     public Gebruiker (String naam){
         setNaam(naam);
     }
-    public boolean login (String naam) {
-        return this.getNaam().equals(naam);
+    public boolean login (String gebruikersnaam) {
+        return this.getNaam ().equals (gebruikersnaam);
     }
 
+    public abstract void vraagOp();
     public abstract Menu getMenu ();
 }
