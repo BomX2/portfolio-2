@@ -13,33 +13,35 @@ public class DataSeeder {
     private ArrayList<Gemeente> gemeentes;
 
 
-    private void voegGebruikerToe (Gebruiker gebruiker) {
+    private void voegGebruikerToe(Gebruiker gebruiker) {
 
         for (Gebruiker g : gebruikers) {
 
-            if (g.getNaam ().equals (gebruiker.getNaam ())) {
+            if (g.getNaam().equals(gebruiker.getNaam())) {
                 return;
             }
         }
 
-        gebruikers.add (gebruiker);
+        gebruikers.add(gebruiker);
     }
 
-    private void voegAsielzoekerToe (Asielzoeker asielzoeker){
+    private void voegAsielzoekerToe(Asielzoeker asielzoeker) {
         voegGebruikerToe(asielzoeker);
     }
-    private void voegMedewerkerToe (CaoMedewerker caoMedewerker){
+
+    private void voegMedewerkerToe(CaoMedewerker caoMedewerker) {
         voegGebruikerToe(caoMedewerker);
     }
-    private void voegBeheerderToe (Beheerder beheerder){
+
+    private void voegBeheerderToe(Beheerder beheerder) {
         voegGebruikerToe(beheerder);
     }
 
 
-    private void initialize () {
+    private void initialize() {
 
-        Dossier dossierM = new Dossier("mohammad","israel",false);
-        Asielzoeker asielzoeker = new Asielzoeker("mohammad","israel",dossierM);
+        Dossier dossierM = new Dossier("mohammad", "israel", false);
+        Asielzoeker asielzoeker = new Asielzoeker("mohammad", "israel", dossierM);
         voegAsielzoekerToe(asielzoeker);
 
         CaoMedewerker cao = new CaoMedewerker("jan");
@@ -49,18 +51,18 @@ public class DataSeeder {
         Beheerder beheerder = new Beheerder("sarah");
         voegBeheerderToe(beheerder);
 
-        Menu uitgelogd = new Menu ("U bent nog niet ingelogd");
-        Menukeuze inloggen = new Menukeuze ("Login", new ActieLogin ());
-        Menukeuze exit = new Menukeuze (9, "Exit", true, new ActieExit ());
-        uitgelogd.voegMenukeuzeToe (inloggen);
-        uitgelogd.voegMenukeuzeToe (exit);
-        menus.add (uitgelogd);
+        Menu uitgelogd = new Menu("U bent nog niet ingelogd");
+        Menukeuze inloggen = new Menukeuze("Login", new ActieLogin());
+        Menukeuze exit = new Menukeuze(9, "Exit", true, new ActieExit());
+        uitgelogd.voegMenukeuzeToe(inloggen);
+        uitgelogd.voegMenukeuzeToe(exit);
+        menus.add(uitgelogd);
 
         Menu caoMenu = new Menu("u bent ingelogd als Cao medewerker");
         Menukeuze registreer = new Menukeuze("registreer een vluchteling", new ActieRegistreer());
-        Menukeuze werkDosierBij = new Menukeuze("werk dossier bij",new ActieWerkBij());
+        Menukeuze werkDosierBij = new Menukeuze("werk dossier bij", new ActieWerkBij());
         Menukeuze vraagOpC = new Menukeuze("gemeente opvragen", new ActieVraagOpC());
-        Menukeuze logout = new Menukeuze(9,"logout",true,new ActieLogout());
+        Menukeuze logout = new Menukeuze(9, "logout", true, new ActieLogout());
         caoMenu.voegMenukeuzeToe(werkDosierBij);
         caoMenu.voegMenukeuzeToe(registreer);
         caoMenu.voegMenukeuzeToe(vraagOpC);
@@ -83,7 +85,7 @@ public class DataSeeder {
 
         Menu vluchtelingMenu = new Menu("u bent ingelogd als asielzoeker");
         Menukeuze gegevens = new Menukeuze("vraag gegevens op", new ActieGegevens());
-        Menukeuze dossier = new Menukeuze("vraag dossier op", new ActieExit());
+        Menukeuze dossier = new Menukeuze("vraag dossier op", new ActieDosier());
         Menukeuze nieuwAdress = new Menukeuze("registreer nieuw adress", new ActieAdress());
         vluchtelingMenu.voegMenukeuzeToe(gegevens);
         vluchtelingMenu.voegMenukeuzeToe(dossier);
@@ -92,7 +94,8 @@ public class DataSeeder {
         menus.add(vluchtelingMenu);
 
     }
-    private DataSeeder(){
+
+    private DataSeeder() {
         this.menus = new ArrayList<>();
         this.gebruikers = new ArrayList<>();
         this.landen = new ArrayList<>();
@@ -100,40 +103,43 @@ public class DataSeeder {
         initialize();
     }
 
-    public static DataSeeder getInstance(){
-        if (instance == null){
+    public static DataSeeder getInstance() {
+        if (instance == null) {
             instance = new DataSeeder();
         }
         return instance;
     }
-    public Menu getMenu () {
 
-        Security security = Security.getInstance ();
+    public Menu getMenu() {
 
-        if (!security.isIngelogd ()) {
-            return menus.get (0);
-        }
-        else {
-            Gebruiker gebruiker = security.getActieveGebruiker ();
-            return gebruiker.getMenu ();
+        Security security = Security.getInstance();
+
+        if (!security.isIngelogd()) {
+            return menus.get(0);
+        } else {
+            Gebruiker gebruiker = security.getActieveGebruiker();
+            return gebruiker.getMenu();
         }
 
     }
 
-    public Menu getCaoMenu (){
-        return  menus.get(1);
+    public Menu getCaoMenu() {
+        return menus.get(1);
     }
-    public Menu getBeheerderMenu (){
+
+    public Menu getBeheerderMenu() {
         return menus.get(2);
     }
-    public Menu getVluchtelingMenu () {
+
+    public Menu getVluchtelingMenu() {
         return menus.get(3);
     }
-    public Gebruiker getGebruiker (String naam) {
+
+    public Gebruiker getGebruiker(String naam) {
 
         for (Gebruiker gebruiker : gebruikers) {
 
-            if (gebruiker.login (naam)) {
+            if (gebruiker.login(naam)) {
                 return gebruiker;
             }
         }
@@ -141,4 +147,11 @@ public class DataSeeder {
         return null;
     }
 
+    public void getAllAzielzoekers() {
+        for (Gebruiker gebruiker : gebruikers) {
+            if (gebruiker instanceof Asielzoeker) {
+                System.out.printf("Naam: %s%n", gebruiker.getNaam());
+            }
+        }
+    }
 }

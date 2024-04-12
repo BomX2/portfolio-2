@@ -6,15 +6,31 @@ public class Dossier {
     private boolean paspoort;
     private boolean asielaanvraag;
     private boolean rechterToeGewezen;
-    private boolean uitspraakGedaan;
-    private boolean uitspraak;
+    private String uitspraakGedaan;
+    private String uitspraak;
     private boolean terugkeert;
 
     public Dossier (String naam, String landVanHerkomst,boolean paspoort){
         setNaam(naam);
         setLandVanHerkomst(landVanHerkomst);
         setPaspoort(paspoort);
+        setAsielaanvraag(false);
+        setRechterToeGewezen(false);
+        setUitspraakGedaan("nee");
+        setUitspraak("nee");
+
     }
+    public Dossier (String naam,String landVanHerkomst, boolean paspoort, boolean asielaanvraag, boolean rechterToeGewezen,String uitspraakGedaan, String uitspraak, boolean terugkeert) {
+        setNaam(naam);
+        setLandVanHerkomst(landVanHerkomst);
+        setPaspoort(paspoort);
+        setAsielaanvraag(asielaanvraag);
+        setRechterToeGewezen(rechterToeGewezen);
+        setUitspraakGedaan(uitspraakGedaan);
+        setUitspraak(uitspraak);
+        setTerugkeert(terugkeert);
+    }
+
 
     public String getNaam() {
         return naam;
@@ -55,21 +71,21 @@ public class Dossier {
     public void setRechterToeGewezen(boolean rechterToeGewezen) {
         this.rechterToeGewezen = rechterToeGewezen;
     }
-
-    public boolean isUitspraakGedaan() {
-        return uitspraakGedaan;
-    }
-
-    public void setUitspraakGedaan(boolean uitspraakGedaan) {
-        this.uitspraakGedaan = uitspraakGedaan;
-    }
-
-    public boolean isUitspraak() {
+    public String getUitspraak() {
         return uitspraak;
     }
 
-    public void setUitspraak(boolean uitspraak) {
+    public void setUitspraak(String uitspraak) {
         this.uitspraak = uitspraak;
+    }
+
+
+    public String getUitspraakGedaan() {
+        return uitspraakGedaan;
+    }
+
+    public void setUitspraakGedaan(String uitspraakGedaan) {
+        this.uitspraakGedaan = uitspraakGedaan;
     }
 
     public boolean isTerugkeert() {
@@ -80,3 +96,4 @@ public class Dossier {
         this.terugkeert = terugkeert;
     }
 }
+
