@@ -59,4 +59,7 @@ public class Azc {
     public void voegVluchtelingToe (Asielzoeker asielzoeker){
         vluchtelingen.add(asielzoeker);
     }
+    public void removeVluchteling (Asielzoeker asielzoeker){
+        vluchtelingen.remove(asielzoeker);
+    }
 }

@@ -17,13 +17,13 @@ public class CaoMedewerker extends Gebruiker {
     public void registreerVluchteling (Dossier dossier) {
 
         String naam = dossier.getNaam();
-        String land = dossier.getLandVanHerkomst();
+        Land land = dossier.getLandVanHerkomst();
         Asielzoeker asielzoeker = new Asielzoeker(naam,land,dossier);
     }
 
     @Override
     public void vraagOp() {
-
+        System.out.println("help");
     }
 
     @Override

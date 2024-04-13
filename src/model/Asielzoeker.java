@@ -4,10 +4,10 @@ import menu.Menu;
 import utils.DataSeeder;
 
 public class Asielzoeker extends Gebruiker{
-    private String landVanHerkomst;
+    private Land landVanHerkomst;
     private Dossier dossier;
 
-    public Asielzoeker(String naam, String landVanHerkomst,Dossier dossier) {
+    public Asielzoeker(String naam, Land landVanHerkomst,Dossier dossier) {
         super(naam);
         this.landVanHerkomst = landVanHerkomst;
         this.dossier = dossier;
@@ -43,11 +43,11 @@ public class Asielzoeker extends Gebruiker{
         return DataSeeder.getInstance().getVluchtelingMenu();
     }
 
-    public String getLandVanHerkomst() {
+    public Land getLandVanHerkomst() {
         return landVanHerkomst;
     }
 
-    public void setLandVanHerkomst(String landVanHerkomst) {
+    public void setLandVanHerkomst(Land landVanHerkomst) {
         this.landVanHerkomst = landVanHerkomst;
     }
 

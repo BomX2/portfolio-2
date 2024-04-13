@@ -2,7 +2,7 @@ package model;
 
 public class Dossier {
     private String naam;
-    private String landVanHerkomst;
+    private Land landVanHerkomst;
     private boolean paspoort;
     private boolean asielaanvraag;
     private boolean rechterToeGewezen;
@@ -10,7 +10,7 @@ public class Dossier {
     private String uitspraak;
     private boolean terugkeert;
 
-    public Dossier (String naam, String landVanHerkomst,boolean paspoort){
+    public Dossier (String naam, Land landVanHerkomst,boolean paspoort){
         setNaam(naam);
         setLandVanHerkomst(landVanHerkomst);
         setPaspoort(paspoort);
@@ -20,7 +20,7 @@ public class Dossier {
         setUitspraak("nee");
 
     }
-    public Dossier (String naam,String landVanHerkomst, boolean paspoort, boolean asielaanvraag, boolean rechterToeGewezen,String uitspraakGedaan, String uitspraak, boolean terugkeert) {
+    public Dossier (String naam,Land landVanHerkomst, boolean paspoort, boolean asielaanvraag, boolean rechterToeGewezen,String uitspraakGedaan, String uitspraak, boolean terugkeert) {
         setNaam(naam);
         setLandVanHerkomst(landVanHerkomst);
         setPaspoort(paspoort);
@@ -40,11 +40,11 @@ public class Dossier {
         this.naam = naam;
     }
 
-    public String getLandVanHerkomst() {
+    public Land getLandVanHerkomst() {
         return landVanHerkomst;
     }
 
-    public void setLandVanHerkomst(String landVanHerkomst) {
+    public void setLandVanHerkomst(Land landVanHerkomst) {
         this.landVanHerkomst = landVanHerkomst;
     }
 

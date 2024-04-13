@@ -25,7 +25,7 @@ public class DataSeeder {
         gebruikers.add(gebruiker);
     }
 
-    private void voegAsielzoekerToe(Asielzoeker asielzoeker) {
+    public void voegAsielzoekerToe(Asielzoeker asielzoeker) {
         voegGebruikerToe(asielzoeker);
     }
 
@@ -39,9 +39,9 @@ public class DataSeeder {
 
 
     private void initialize() {
-
-        Dossier dossierM = new Dossier("mohammad", "israel", false);
-        Asielzoeker asielzoeker = new Asielzoeker("mohammad", "israel", dossierM);
+        Land israel = new Land("israel",false);
+        Dossier dossierM = new Dossier("mohammad", israel, false);
+        Asielzoeker asielzoeker = new Asielzoeker("mohammad", israel, dossierM);
         voegAsielzoekerToe(asielzoeker);
 
         CaoMedewerker cao = new CaoMedewerker("jan");
@@ -154,4 +154,32 @@ public class DataSeeder {
             }
         }
     }
+    public Gebruiker getVluchtelingBijNaam (String naam){
+            for(Gebruiker g : gebruikers){
+                if (g.getNaam().equalsIgnoreCase(naam)){
+                    return g;
+                }
+            }
+            return null;
+    }
+    public boolean JaOfNee (String jaOfNee){
+        if (jaOfNee.equalsIgnoreCase("ja")){
+            return true;
+        }
+        return false;
+    }
+
+    public Land getLand (String naam) {
+        for(Land land : landen) {
+            if (land.getNaam().equalsIgnoreCase(naam)){
+                return land;
+            }
+        }
+        return null;
+
+    }
+    public void setLanden (Land land){
+        landen.add(land);
+    }
+
 }
