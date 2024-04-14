@@ -9,7 +9,14 @@ public class ActieGegevens implements IActie{
         Security security = Security.getInstance();
         Asielzoeker asielzoeker = (Asielzoeker) security.getActieveGebruiker();
         System.out.println(asielzoeker.getNaam());
-        System.out.println(asielzoeker.getLandVanHerkomst());
+        System.out.println(asielzoeker.getLandVanHerkomst().getNaam());
+
+        if (asielzoeker.getLandVanHerkomst().isVeilig()){
+            System.out.println("land is veilig");
+        } else {
+            System.out.println("land is niet veilig");
+        }
+
 
     }
 }

@@ -1,6 +1,5 @@
 package menu;
 
-import model.Asielzoeker;
 import model.CaoMedewerker;
 import utils.Security;
 

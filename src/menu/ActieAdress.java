@@ -15,6 +15,7 @@ public class ActieAdress implements IActie{
             Scanner scanner = new Scanner(System.in);
             System.out.println("voer uw nieuwe adress in");
             String adress = scanner.nextLine();
+            asielzoeker.nieuwAdress(adress);
         } else {
             System.out.println("u heeft nog geen toegang tot deze functie");
             System.out.println("wacht totdat de rechter uitspraak heeft gedaan");

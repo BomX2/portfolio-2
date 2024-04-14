@@ -4,6 +4,7 @@ import menu.*;
 import model.*;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class DataSeeder {
     private static DataSeeder instance = null;
@@ -40,15 +41,18 @@ public class DataSeeder {
 
     private void initialize() {
         Land israel = new Land("israel",false);
+        Gemeente denHaag = new Gemeente("den haag", 514861);
         Dossier dossierM = new Dossier("mohammad", israel, false);
-        Asielzoeker asielzoeker = new Asielzoeker("mohammad", israel, dossierM);
+        Asielzoeker asielzoeker = new Asielzoeker("amin", israel, dossierM);
         voegAsielzoekerToe(asielzoeker);
+        landen.add(israel);
+        gemeentes.add(denHaag);
 
         CaoMedewerker cao = new CaoMedewerker("jan");
         cao.registreerVluchteling(dossierM);
         voegMedewerkerToe(cao);
 
-        Beheerder beheerder = new Beheerder("sarah");
+        Beheerder beheerder = new Beheerder("tony");
         voegBeheerderToe(beheerder);
 
         Menu uitgelogd = new Menu("U bent nog niet ingelogd");
@@ -178,8 +182,19 @@ public class DataSeeder {
         return null;
 
     }
+    public void getAllLanden (){
+        for (Land land : landen){
+            System.out.printf("naam: %s%n", land.getNaam());
+        }
+    }
     public void setLanden (Land land){
         landen.add(land);
     }
+    public void setGemeentes (Gemeente gemeente) {
+        gemeentes.add(gemeente);
+    }
 
+    public ArrayList<Gemeente> getGemeentes() {
+        return gemeentes;
+    }
 }

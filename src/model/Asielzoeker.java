@@ -13,7 +13,7 @@ public class Asielzoeker extends Gebruiker{
         this.dossier = dossier;
     }
 
-    public void nieuwAdress() {
+    public void nieuwAdress(String plek) {
 
     }
 

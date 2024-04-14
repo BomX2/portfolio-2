@@ -23,7 +23,7 @@ public class CaoMedewerker extends Gebruiker {
 
     @Override
     public void vraagOp() {
-        System.out.println("help");
+        ArrayList<Gemeente> gemeentes = DataSeeder.getInstance().getGemeentes();
     }
 
     @Override
