@@ -1,12 +1,17 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Gemeente {
     private String naam;
     private int inwoners;
 
+    private ArrayList<Azc> azcs;
+
     public Gemeente (String naam, int inwoners){
         this.inwoners = inwoners;
         this.naam = naam;
+        azcs = new ArrayList<>();
     }
 
     public String getNaam() {
@@ -25,4 +30,11 @@ public class Gemeente {
         this.inwoners = inwoners;
     }
 
+    public ArrayList<Azc> getAzcs() {
+        return azcs;
+    }
+
+    public void addAzcs(Azc azcs) {
+        this.azcs.add(azcs);
+    }
 }

@@ -15,6 +15,7 @@ public class ActieVoegLand implements IActie{
         System.out.println("voer de naam van het land in");
         String naam = scanner.nextLine();
         System.out.println("is het land veilig");
+        System.out.println("ja on nee");
         boolean veilig = DataSeeder.getInstance().JaOfNee(scanner.nextLine());
         beheerder.voegLandToe(naam,veilig);
     }

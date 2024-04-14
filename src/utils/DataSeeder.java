@@ -49,7 +49,6 @@ public class DataSeeder {
         gemeentes.add(denHaag);
 
         CaoMedewerker cao = new CaoMedewerker("jan");
-        cao.registreerVluchteling(dossierM);
         voegMedewerkerToe(cao);
 
         Beheerder beheerder = new Beheerder("tony");
@@ -196,5 +195,17 @@ public class DataSeeder {
 
     public ArrayList<Gemeente> getGemeentes() {
         return gemeentes;
+    }
+
+    public void setGemeentes(ArrayList<Gemeente> gemeentes) {
+        this.gemeentes = gemeentes;
+    }public Gemeente getGemeente (String naam) {
+        for(Gemeente gemeente : gemeentes) {
+            if (gemeente.getNaam().equalsIgnoreCase(naam)){
+                return gemeente;
+            }
+        }
+        return null;
+
     }
 }

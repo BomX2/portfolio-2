@@ -4,33 +4,36 @@ import utils.DataSeeder;
 
 import java.util.Scanner;
 import model.*;
+import utils.Security;
 
 public class ActieWerkBij implements IActie {
     @Override
     public void voerActieUit() {
         DataSeeder seeder = DataSeeder.getInstance();
         Scanner scanner = new Scanner(System.in);
+        CaoMedewerker caoMedewerker = (CaoMedewerker) Security.getInstance().getActieveGebruiker();
         System.out.printf("=== %s%n", "alle geregistreerde vluchtelingen");
         DataSeeder.getInstance().getAllAzielzoekers();
         System.out.printf("=== %s%n","geef de naam waarvan je het dossier aan wilt passen");
         String naam = scanner.nextLine();
         System.out.println("is er een paspoort getoond");
+        System.out.println("ja on nee");
         String paspoort = scanner.nextLine();
         System.out.println("is de asielaanvraag compleet");
+        System.out.println("ja on nee");
         String asiel = scanner.nextLine();
         System.out.println("is er een rechter toe gewezen");
+        System.out.println("ja on nee");
         String rechter = scanner.nextLine();
         System.out.println("heeft de rechter uitspraak gedaan");
         String uitspraakgedaan = scanner.nextLine();
         System.out.println("Wat is de uitspraak");
         String uitspraak = scanner.nextLine();
         System.out.println("keert de vluchteling terug");
+        System.out.println("ja on nee");
         String keertterug = scanner.nextLine();
 
-        Asielzoeker asielzoeker = (Asielzoeker) DataSeeder.getInstance().getVluchtelingBijNaam(naam);
-        Dossier dossier = new Dossier(asielzoeker.getNaam(),asielzoeker.getLandVanHerkomst(),seeder.JaOfNee(paspoort),seeder.JaOfNee(asiel),seeder.JaOfNee(rechter),uitspraakgedaan,uitspraak,seeder.JaOfNee(keertterug));
-        asielzoeker.setDossier(dossier);
-
+        caoMedewerker.werkDosierBij(naam,paspoort,asiel,rechter,uitspraakgedaan,uitspraak,keertterug);
 
 }
 }

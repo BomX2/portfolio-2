@@ -15,6 +15,7 @@ public class ActieRegistreer implements IActie{
         System.out.println("geef land van herkomst op");
         String land = scanner.nextLine();
         System.out.println("kan er een paspoort getoont worden");
+        System.out.println("ja on nee");
         String paspoort = scanner.nextLine();
 
         Land land1 = DataSeeder.getInstance().getLand(land);
