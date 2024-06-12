@@ -3,6 +3,8 @@ package model;
 import menu.Menu;
 import utils.DataSeeder;
 
+import java.util.Observable;
+
 public class Asielzoeker extends Gebruiker{
     private Land landVanHerkomst;
     private Dossier dossier;

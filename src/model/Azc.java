@@ -1,13 +1,17 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
 
-public class Azc {
+public class Azc implements Observer {
     private String straat;
     private int nummer;
     private String postcode;
     private Gemeente gemeente;
+    private Berichtenbox berichtenbox;
     private ArrayList<Asielzoeker> vluchtelingen;
+    private ArrayList<Kamer> kamers;
 
     public Azc (String straat,int nummer,String postcode, Gemeente gemeente) {
         this.straat = straat;
@@ -61,5 +65,10 @@ public class Azc {
     }
     public void removeVluchteling (Asielzoeker asielzoeker){
         vluchtelingen.remove(asielzoeker);
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+
     }
 }
