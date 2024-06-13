@@ -2,10 +2,14 @@ package model;
 
 import menu.Menu;
 import utils.DataSeeder;
+import utils.observable;
+import utils.observer;
 
-import java.util.Observable;
+import java.util.ArrayList;
+import java.util.Observer;
 
-public class Asielzoeker extends Gebruiker{
+public class Asielzoeker extends Gebruiker implements observable {
+    private ArrayList<observer> observers= new ArrayList<>();
     private Land landVanHerkomst;
     private Dossier dossier;
 
@@ -13,6 +17,21 @@ public class Asielzoeker extends Gebruiker{
         super(naam);
         this.landVanHerkomst = landVanHerkomst;
         this.dossier = dossier;
+    }
+
+    @Override
+    public void addObserver(Observer observer) {
+
+    }
+
+    @Override
+    public void removeObserver(Observer observer) {
+
+    }
+
+    @Override
+    public void notifyObservers(String message) {
+
     }
 
     public void nieuwAdress(String plek) {
@@ -60,4 +79,5 @@ public class Asielzoeker extends Gebruiker{
     public void setDossier(Dossier dossier) {
         this.dossier = dossier;
     }
+
 }

@@ -1,4 +1,11 @@
 package model;
 
-public class Berichtenbox {
+import utils.observer;
+
+public class Berichtenbox implements observer {
+
+    @Override
+    public void update(String message) {
+
+    }
 }

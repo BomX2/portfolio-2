@@ -13,7 +13,6 @@ public class DataSeeder {
     private ArrayList<Land> landen;
     private ArrayList<Gemeente> gemeentes;
 
-
     private void voegGebruikerToe(Gebruiker gebruiker) {
 
         for (Gebruiker g : gebruikers) {
@@ -95,7 +94,6 @@ public class DataSeeder {
         vluchtelingMenu.voegMenukeuzeToe(nieuwAdress);
         vluchtelingMenu.voegMenukeuzeToe(logout);
         menus.add(vluchtelingMenu);
-
     }
 
     private DataSeeder() {
@@ -126,7 +124,7 @@ public class DataSeeder {
 
     }
 
-    public Menu getCaoMenu() {
+   public Menu getCaoMenu() {
         return menus.get(1);
     }
 

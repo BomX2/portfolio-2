@@ -1,6 +1,6 @@
 package model;
 
-import utils.DataSeeder;
+import utils.*;
 
 import menu.Menu;
 
