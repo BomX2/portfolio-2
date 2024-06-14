@@ -2,27 +2,21 @@ package model;
 
 import java.util.ArrayList;
 import java.util.Observable;
-import java.util.Observer;
+import model.*;
 
 public class Azc implements Observer {
     private String straat;
     private int nummer;
     private String postcode;
-    private Gemeente gemeente;
     private Berichtenbox berichtenbox;
     private ArrayList<Asielzoeker> vluchtelingen;
     private ArrayList<Kamer> kamers;
 
-    public Azc (String straat,int nummer,String postcode, Gemeente gemeente) {
+    public Azc (String straat,int nummer,String postcode) {
         this.straat = straat;
         this.nummer = nummer;
         this.postcode = postcode;
-        this.gemeente = gemeente;
         vluchtelingen = new ArrayList<>();
-    }
-
-    public Gemeente getGemeente() {
-        return gemeente;
     }
 
     public int getNummer() {
@@ -40,11 +34,6 @@ public class Azc implements Observer {
     public ArrayList<Asielzoeker> getVluchtelingen() {
         return vluchtelingen;
     }
-
-    public void setGemeente(Gemeente gemeente) {
-        this.gemeente = gemeente;
-    }
-
     public void setNummer(int nummer) {
         this.nummer = nummer;
     }
@@ -68,7 +57,7 @@ public class Azc implements Observer {
     }
 
     @Override
-    public void update(Observable o, Object arg) {
+    public void update(String message) {
 
     }
 }

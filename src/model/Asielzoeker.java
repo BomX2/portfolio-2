@@ -6,20 +6,21 @@ import utils.*;
 import java.util.ArrayList;
 
 public class Asielzoeker extends Gebruiker {
-    private ArrayList<observer> observers= new ArrayList<>();
+    private ArrayList<Observer> observers= new ArrayList<>();
     private Land landVanHerkomst;
+    private String nieuwAdress;
     private Dossier dossier;
     private observable pbserver;
     public Asielzoeker(String naam, Land landVanHerkomst,Dossier dossier) {
         super(naam);
         this.landVanHerkomst = landVanHerkomst;
         this.dossier = dossier;
+        this.nieuwAdress = null;
     }
-
-
     public void nieuwAdress(String plek) {
-
-        pbserver.notify();
+        this.nieuwAdress = plek;
+        Bericht bericht = new Bericht("verhuizing" + getNaam(),getNaam(),getNaam() + "is verhuist naar"+ getNieuwAdress());
+        pbserver.notifyObservers("help");
 
     }
 
@@ -65,4 +66,11 @@ public class Asielzoeker extends Gebruiker {
         this.dossier = dossier;
     }
 
+    public String getNieuwAdress() {
+        return nieuwAdress;
+    }
+
+    public void setNieuwAdress(String nieuwAdress) {
+        this.nieuwAdress = nieuwAdress;
+    }
 }

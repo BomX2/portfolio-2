@@ -1,10 +1,10 @@
 package utils;
 
-import model.observer;
+import model.Observer;
 
 import java.util.ArrayList;
 
-public class AppListener implements observer {
+public class AppListener implements Observer {
     private String naam;
     private ArrayList<String> notificaties;
 

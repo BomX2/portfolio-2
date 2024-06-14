@@ -33,6 +33,15 @@ public class Gemeente {
     public ArrayList<Azc> getAzcs() {
         return azcs;
     }
+    public Azc getAzc (String postcode) {
+        for(Azc azc : azcs) {
+            if (azc.getPostcode().equals(postcode)){
+                return azc;
+            }
+        }
+        return null;
+
+    }
 
     public void addAzcs(Azc azcs) {
         this.azcs.add(azcs);

@@ -3,16 +3,16 @@ package model;
 import java.util.ArrayList;
 
 public class observable {
-    private final ArrayList<observer> observers;
+    private final ArrayList<Observer> observers;
 
     public observable() {
         observers = new ArrayList<>();
     }
 
-    public void addObserver(observer observer){
+    public void addObserver(Observer observer){
         observers.add(observer);
     }
-    public void removeObserver(observer observer){
+    public void removeObserver(Observer observer){
         observers.remove(observer);
 
     }
