@@ -1,11 +1,12 @@
 package model;
 
 import menu.Menu;
+import utils.DataSeeder;
 
 import java.util.Observable;
 import java.util.Observer;
 
-public class AzcMedewerker extends Gebruiker implements Observer {
+public class AzcMedewerker extends Gebruiker{
     public AzcMedewerker(String naam) {
         super(naam);
     }
@@ -17,11 +18,7 @@ public class AzcMedewerker extends Gebruiker implements Observer {
 
     @Override
     public Menu getMenu() {
-        return null;
+        return DataSeeder.getInstance().getMenus().getAzcMenu();
     }
 
-    @Override
-    public void update(Observable o, Object arg) {
-
-    }
 }

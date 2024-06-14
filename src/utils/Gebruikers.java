@@ -21,6 +21,9 @@ public class Gebruikers {
 
         Beheerder beheerder = new Beheerder("tony");
         voegBeheerderToe(beheerder);
+
+        AzcMedewerker azcMedewerker = new AzcMedewerker("kees");
+        voegAzcMedewerkerToe(azcMedewerker);
     }
     private void voegGebruikerToe(Gebruiker gebruiker) {
 
@@ -43,6 +46,9 @@ public class Gebruikers {
 
     private void voegBeheerderToe(Beheerder beheerder) {
         voegGebruikerToe(beheerder);
+    }
+    private void voegAzcMedewerkerToe (AzcMedewerker azcMedewerker){
+        voegGebruikerToe(azcMedewerker);
     }
 
     public Gebruiker getGebruiker(String naam) {

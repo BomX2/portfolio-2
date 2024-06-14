@@ -1,7 +1,6 @@
-package utils;
+package model;
 
 import java.util.ArrayList;
-import java.util.Observer;
 
 public class observable {
     private final ArrayList<observer> observers;

@@ -54,6 +54,10 @@ public class Menus {
         vluchtelingMenu.voegMenukeuzeToe(nieuwAdress);
         vluchtelingMenu.voegMenukeuzeToe(logout);
         menus.add(vluchtelingMenu);
+
+        Menu azcmenu = new Menu("u bent ingelogd als Azc medewerker");
+        azcmenu.voegMenukeuzeToe(logout);
+        menus.add(azcmenu);
     }
     public Menu getMenu() {
 
@@ -78,5 +82,9 @@ public class Menus {
 
     public Menu getVluchtelingMenu() {
         return menus.get(3);
+    }
+
+    public Menu getAzcMenu (){
+        return menus.get(4);
     }
 }

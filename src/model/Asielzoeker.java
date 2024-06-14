@@ -4,7 +4,6 @@ import menu.Menu;
 import utils.*;
 
 import java.util.ArrayList;
-import java.util.Observer;
 
 public class Asielzoeker extends Gebruiker {
     private ArrayList<observer> observers= new ArrayList<>();
