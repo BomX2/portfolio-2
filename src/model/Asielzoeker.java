@@ -1,40 +1,26 @@
 package model;
 
 import menu.Menu;
-import utils.DataSeeder;
-import utils.observable;
-import utils.observer;
+import utils.*;
 
 import java.util.ArrayList;
 import java.util.Observer;
 
-public class Asielzoeker extends Gebruiker implements observable {
+public class Asielzoeker extends Gebruiker {
     private ArrayList<observer> observers= new ArrayList<>();
     private Land landVanHerkomst;
     private Dossier dossier;
-
+    private observable pbserver;
     public Asielzoeker(String naam, Land landVanHerkomst,Dossier dossier) {
         super(naam);
         this.landVanHerkomst = landVanHerkomst;
         this.dossier = dossier;
     }
 
-    @Override
-    public void addObserver(Observer observer) {
-
-    }
-
-    @Override
-    public void removeObserver(Observer observer) {
-
-    }
-
-    @Override
-    public void notifyObservers(String message) {
-
-    }
 
     public void nieuwAdress(String plek) {
+
+        pbserver.notify();
 
     }
 
@@ -61,7 +47,7 @@ public class Asielzoeker extends Gebruiker implements observable {
 
     @Override
     public Menu getMenu() {
-        return DataSeeder.getInstance().getVluchtelingMenu();
+        return DataSeeder.getInstance().getMenus().getVluchtelingMenu();
     }
 
     public Land getLandVanHerkomst() {

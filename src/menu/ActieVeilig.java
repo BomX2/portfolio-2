@@ -14,14 +14,14 @@ public class ActieVeilig implements IActie{
         DataSeeder seeder = DataSeeder.getInstance();
         Security security = Security.getInstance();
         Beheerder beheerder = (Beheerder) security.getActieveGebruiker();
-        seeder.getAllLanden();
+        seeder.getLanden().getAllLanden();
         System.out.println("geef de naam van het land waar u de veiligheid van wilt wijzigen");
         String naam = scanner.nextLine();
         System.out.println("is het land veilig");
         System.out.println("ja on nee");
         String veilig = scanner.nextLine();
 
-        Land land = seeder.getLand(naam);
+        Land land = seeder.getLanden().getLand(naam);
         beheerder.isVeilig(land,seeder.JaOfNee(veilig));
 
     }

@@ -23,7 +23,7 @@ public class CaoMedewerker extends Gebruiker {
     }
     public void werkDosierBij(String naam,String paspoort, String asiel, String rechter, String uitspraakgedaan, String uitspraak, String keertterug){
         DataSeeder seeder = DataSeeder.getInstance();
-        Asielzoeker asielzoeker = (Asielzoeker) DataSeeder.getInstance().getVluchtelingBijNaam(naam);
+        Asielzoeker asielzoeker = (Asielzoeker) DataSeeder.getInstance().getGebruikers().getVluchtelingBijNaam(naam);
         boolean paspoort1 = seeder.JaOfNee(paspoort);
         boolean asiel1 = seeder.JaOfNee(asiel);
         boolean rechter1 = seeder.JaOfNee(rechter);
@@ -34,7 +34,7 @@ public class CaoMedewerker extends Gebruiker {
 
     @Override
     public void vraagOp() {
-        ArrayList<Gemeente> gemeentes = DataSeeder.getInstance().getGemeentes();
+        ArrayList<Gemeente> gemeentes = DataSeeder.getInstance().getGemeentes().getGemeentes();
 
         for (Gemeente gemeente : gemeentes) {
             System.out.printf("Gemeente: %s",gemeente.getNaam());
@@ -43,6 +43,6 @@ public class CaoMedewerker extends Gebruiker {
 
     @Override
     public Menu getMenu() {
-        return DataSeeder.getInstance().getCaoMenu();
+        return DataSeeder.getInstance().getMenus().getCaoMenu();
     }
 }

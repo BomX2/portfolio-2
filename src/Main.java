@@ -9,7 +9,7 @@ public class Main {
         DataSeeder seeder = DataSeeder.getInstance ();
 
         while (true) {
-            Menu menu = seeder.getMenu ();
+            Menu menu = seeder.getMenus().getMenu();
             menu.toonMenu();
         }
     }

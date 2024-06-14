@@ -12,19 +12,19 @@ public class Beheerder extends Gebruiker{
 
     public void voegLandToe (String naam, boolean veilig){
         Land land = new Land(naam,veilig);
-        DataSeeder.getInstance().setLanden(land);
+        DataSeeder.getInstance().getLanden().setLanden(land);
     }
     public void isVeilig (Land land, boolean veilig){
         land.setVeilig(veilig);
     }
     public void voegGemeentetoe (String naam , int aantalinwooners){
         Gemeente gemeente = new Gemeente(naam,aantalinwooners);
-        DataSeeder.getInstance().setGemeentes(gemeente);
+        DataSeeder.getInstance().getGemeentes().setGemeentes(gemeente);
 
     }
     @Override
     public void vraagOp() {
-        ArrayList<Gemeente> gemeentes = DataSeeder.getInstance().getGemeentes();
+        ArrayList<Gemeente> gemeentes = DataSeeder.getInstance().getGemeentes().getGemeentes();
 
         for (Gemeente gemeente : gemeentes){
             int aantalInwoners = gemeente.getInwoners();
@@ -47,6 +47,6 @@ public class Beheerder extends Gebruiker{
 
     @Override
     public Menu getMenu() {
-        return DataSeeder.getInstance().getBeheerderMenu();
+        return DataSeeder.getInstance().getMenus().getBeheerderMenu();
     }
 }

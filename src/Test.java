@@ -14,7 +14,7 @@ class Test {
 
         beheerder.voegGemeentetoe("den haag",1000);
 
-        assertNotNull(DataSeeder.getInstance().getGemeente("den haag"));
+        assertNotNull(DataSeeder.getInstance().getGemeentes().getGemeente("den haag"));
     }
 
     @org.junit.jupiter.api.Test
@@ -23,7 +23,7 @@ class Test {
 
         beheerder.voegLandToe("israel",false);
 
-        assertNotNull(DataSeeder.getInstance().getLand("israel"));
+        assertNotNull(DataSeeder.getInstance().getLanden().getLand("israel"));
     }
 
     @org.junit.jupiter.api.Test

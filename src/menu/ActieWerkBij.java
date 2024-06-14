@@ -13,7 +13,7 @@ public class ActieWerkBij implements IActie {
         Scanner scanner = new Scanner(System.in);
         CaoMedewerker caoMedewerker = (CaoMedewerker) Security.getInstance().getActieveGebruiker();
         System.out.printf("=== %s%n", "alle geregistreerde vluchtelingen");
-        DataSeeder.getInstance().getAllAzielzoekers();
+        DataSeeder.getInstance().getGebruikers().getAllAzielzoekers();
         System.out.printf("=== %s%n","geef de naam waarvan je het dossier aan wilt passen");
         String naam = scanner.nextLine();
         System.out.println("is er een paspoort getoond");

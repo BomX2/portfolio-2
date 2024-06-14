@@ -18,10 +18,10 @@ public class ActieRegistreer implements IActie{
         System.out.println("ja on nee");
         String paspoort = scanner.nextLine();
 
-        Land land1 = DataSeeder.getInstance().getLand(land);
+        Land land1 = DataSeeder.getInstance().getLanden().getLand(land);
         Dossier dossier = new Dossier(naam,land1,seeder.JaOfNee(paspoort));
         Asielzoeker asielzoeker = new Asielzoeker(naam,land1,dossier);
-        seeder.voegAsielzoekerToe(asielzoeker);
+        seeder.getGebruikers().voegAsielzoekerToe(asielzoeker);
 
     }
 }

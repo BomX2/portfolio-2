@@ -45,7 +45,7 @@ public class Security {
         while (!ingelogd) {
 
             String gebruikersnaam = scanner.nextLine ();
-            Gebruiker gebruiker = seeder.getGebruiker (gebruikersnaam);
+            Gebruiker gebruiker = seeder.getGebruikers().getGebruiker (gebruikersnaam);
 
             if (gebruiker != null) {
                 setActieveGebruiker (gebruiker);

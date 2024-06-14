@@ -5,14 +5,20 @@ import model.Gebruiker;
 
 import java.util.ArrayList;
 
-public class menus {
+public class Menus {
+    private final ArrayList<Menu> menus;
+
+    public Menus() {
+        this.menus = new ArrayList<>();
+    }
+
     public void initializeMenus(){
         Menu uitgelogd = new Menu("U bent nog niet ingelogd");
         Menukeuze inloggen = new Menukeuze("Login", new ActieLogin());
         Menukeuze exit = new Menukeuze(9, "Exit", true, new ActieExit());
         uitgelogd.voegMenukeuzeToe(inloggen);
         uitgelogd.voegMenukeuzeToe(exit);
-        DataSeeder.getInstance().voegMenuToe(uitgelogd);
+        menus.add(uitgelogd);
 
         Menu caoMenu = new Menu("u bent ingelogd als Cao medewerker");
         Menukeuze registreer = new Menukeuze("registreer een vluchteling", new ActieRegistreer());
@@ -23,7 +29,7 @@ public class menus {
         caoMenu.voegMenukeuzeToe(registreer);
         caoMenu.voegMenukeuzeToe(vraagOpC);
         caoMenu.voegMenukeuzeToe(logout);
-        DataSeeder.getInstance().voegMenuToe(caoMenu);
+        menus.add(caoMenu);
 
 
         Menu beheerderMenu = new Menu("u bent ingelogd als beheerder");
@@ -36,7 +42,7 @@ public class menus {
         beheerderMenu.voegMenukeuzeToe(voegGemeente);
         beheerderMenu.voegMenukeuzeToe(vraagOpB);
         beheerderMenu.voegMenukeuzeToe(logout);
-        DataSeeder.getInstance().voegMenuToe(beheerderMenu);
+        menus.add(beheerderMenu);
 
 
         Menu vluchtelingMenu = new Menu("u bent ingelogd als asielzoeker");
@@ -47,6 +53,30 @@ public class menus {
         vluchtelingMenu.voegMenukeuzeToe(dossier);
         vluchtelingMenu.voegMenukeuzeToe(nieuwAdress);
         vluchtelingMenu.voegMenukeuzeToe(logout);
-        DataSeeder.getInstance().voegMenuToe(vluchtelingMenu);
+        menus.add(vluchtelingMenu);
+    }
+    public Menu getMenu() {
+
+        Security security = Security.getInstance();
+
+        if (!security.isIngelogd()) {
+            return menus.get(0);
+        } else {
+            Gebruiker gebruiker = security.getActieveGebruiker();
+            return gebruiker.getMenu();
+        }
+
+    }
+
+    public Menu getCaoMenu() {
+        return menus.get(1);
+    }
+
+    public Menu getBeheerderMenu() {
+        return menus.get(2);
+    }
+
+    public Menu getVluchtelingMenu() {
+        return menus.get(3);
     }
 }
