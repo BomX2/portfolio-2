@@ -7,14 +7,16 @@ import java.util.ArrayList;
 public class Gebruikers {
     private Landen landen;
     private final ArrayList<Gebruiker> gebruikers;
+    private Observable observable;
 
-    public Gebruikers(Landen landen) {
+    public Gebruikers(Landen landen, Observable observable) {
         this.landen = landen;
         gebruikers = new ArrayList<>();
+        this.observable = observable;
     }
     public void initializeGebruikers(){
         Dossier dossierM = new Dossier("mohammad", landen.getLand("israel"), false);
-        Asielzoeker asielzoeker = new Asielzoeker("amin", landen.getLand("israel"), dossierM);
+        Asielzoeker asielzoeker = new Asielzoeker("amin", landen.getLand("israel"), dossierM,observable);
         voegAsielzoekerToe(asielzoeker);
         CaoMedewerker cao = new CaoMedewerker("jan");
         voegMedewerkerToe(cao);

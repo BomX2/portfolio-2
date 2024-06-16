@@ -22,18 +22,13 @@ public class ActieWerkBij implements IActie {
         System.out.println("is de asielaanvraag compleet");
         System.out.println("ja on nee");
         String asiel = scanner.nextLine();
-        System.out.println("is er een rechter toe gewezen");
-        System.out.println("ja on nee");
-        String rechter = scanner.nextLine();
-        System.out.println("heeft de rechter uitspraak gedaan");
-        String uitspraakgedaan = scanner.nextLine();
         System.out.println("Wat is de uitspraak");
         String uitspraak = scanner.nextLine();
         System.out.println("keert de vluchteling terug");
         System.out.println("ja on nee");
         String keertterug = scanner.nextLine();
 
-        caoMedewerker.werkDosierBij(naam,paspoort,asiel,rechter,uitspraakgedaan,uitspraak,keertterug);
+        caoMedewerker.werkDosierBij(naam,paspoort,asiel,uitspraak,keertterug);
 
 }
 }

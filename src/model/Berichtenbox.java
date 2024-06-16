@@ -1,9 +1,16 @@
 package model;
 
-public class Berichtenbox implements Observer {
+import java.util.ArrayList;
 
-    @Override
-    public void update(String message) {
+public class Berichtenbox{
+    ArrayList<Bericht> berichten;
 
+    public Berichtenbox (){
+        berichten = new ArrayList<>();
     }
+
+    public void voegBericht (Bericht bericht) {
+        berichten.add(bericht);
+    }
+
 }

@@ -17,6 +17,7 @@ public class Azc implements Observer {
         this.nummer = nummer;
         this.postcode = postcode;
         vluchtelingen = new ArrayList<>();
+        berichtenbox = new Berichtenbox();
     }
 
     public int getNummer() {
@@ -57,7 +58,8 @@ public class Azc implements Observer {
     }
 
     @Override
-    public void update(String message) {
-
+    public void update(Bericht bericht) {
+        berichtenbox.voegBericht(bericht);
+        System.out.println("AZC " + straat + " heeft een nieuw bericht ontvangen.");
     }
 }

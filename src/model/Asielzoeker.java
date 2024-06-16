@@ -10,17 +10,26 @@ public class Asielzoeker extends Gebruiker {
     private Land landVanHerkomst;
     private String nieuwAdress;
     private Dossier dossier;
-    private observable pbserver;
-    public Asielzoeker(String naam, Land landVanHerkomst,Dossier dossier) {
+    private Observable observer;
+
+    public Asielzoeker(String naam, Land landVanHerkomst,Dossier dossier){
         super(naam);
         this.landVanHerkomst = landVanHerkomst;
         this.dossier = dossier;
         this.nieuwAdress = null;
+
+    }
+    public Asielzoeker(String naam, Land landVanHerkomst,Dossier dossier,Observable observable) {
+        super(naam);
+        this.landVanHerkomst = landVanHerkomst;
+        this.dossier = dossier;
+        this.nieuwAdress = null;
+        observer = observable;
     }
     public void nieuwAdress(String plek) {
         this.nieuwAdress = plek;
         Bericht bericht = new Bericht("verhuizing" + getNaam(),getNaam(),getNaam() + "is verhuist naar"+ getNieuwAdress());
-        pbserver.notifyObservers("help");
+        observer.notifyObservers(bericht);
 
     }
 

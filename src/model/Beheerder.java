@@ -38,11 +38,9 @@ public class Beheerder extends Gebruiker{
             } else {
                 uitkering = 0;
             }
-
             System.out.printf("Gemeente %s: Opvangcapaciteit: %d, Uitkering: €%d%n",
                     gemeente.getNaam(), capaciteit, uitkering);
         }
-
     }
 
     @Override

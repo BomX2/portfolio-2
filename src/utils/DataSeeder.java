@@ -1,11 +1,14 @@
 package utils;
 
+import model.Observable;
+
 public class DataSeeder {
     private static DataSeeder instance = null;
     private Menus menus;
     private Landen landen;
     private Gebruikers gebruikers;
     private Gemeentes gemeentes;
+    private Observable observable;
 
     public Menus getMenus() {
         return menus;
@@ -32,8 +35,9 @@ public class DataSeeder {
     private DataSeeder() {
         this.menus = new Menus();
         this.landen = new Landen();
-        this.gebruikers = new Gebruikers(this.landen);
-        this.gemeentes = new Gemeentes();
+        this.observable = new Observable();
+        this.gebruikers = new Gebruikers(this.landen,observable);
+        this.gemeentes = new Gemeentes(observable);
         initialize();
     }
 

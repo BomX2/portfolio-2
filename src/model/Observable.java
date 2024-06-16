@@ -2,10 +2,10 @@ package model;
 
 import java.util.ArrayList;
 
-public class observable {
+public class Observable {
     private final ArrayList<Observer> observers;
 
-    public observable() {
+    public Observable() {
         observers = new ArrayList<>();
     }
 
@@ -16,8 +16,8 @@ public class observable {
         observers.remove(observer);
 
     }
-    public void notifyObservers(String message){
-        observers.forEach(observer -> observer.update(message));
+    public void notifyObservers(Bericht bericht){
+        observers.forEach(observer -> observer.update(bericht));
     }
 
 }

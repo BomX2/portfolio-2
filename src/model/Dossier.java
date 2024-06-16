@@ -5,8 +5,6 @@ public class Dossier {
     private Land landVanHerkomst;
     private boolean paspoort;
     private boolean asielaanvraag;
-    private boolean rechterToeGewezen;
-    private String uitspraakGedaan;
     private String uitspraak;
     private boolean terugkeert;
 
@@ -15,18 +13,14 @@ public class Dossier {
         setLandVanHerkomst(landVanHerkomst);
         setPaspoort(paspoort);
         setAsielaanvraag(false);
-        setRechterToeGewezen(false);
-        setUitspraakGedaan("nee");
         setUitspraak("nee");
 
     }
-    public Dossier (String naam,Land landVanHerkomst, boolean paspoort, boolean asielaanvraag, boolean rechterToeGewezen,String uitspraakGedaan, String uitspraak, boolean terugkeert) {
+    public Dossier (String naam,Land landVanHerkomst, boolean paspoort, boolean asielaanvraag,String uitspraak, boolean terugkeert) {
         setNaam(naam);
         setLandVanHerkomst(landVanHerkomst);
         setPaspoort(paspoort);
         setAsielaanvraag(asielaanvraag);
-        setRechterToeGewezen(rechterToeGewezen);
-        setUitspraakGedaan(uitspraakGedaan);
         setUitspraak(uitspraak);
         setTerugkeert(terugkeert);
     }
@@ -64,28 +58,12 @@ public class Dossier {
         this.asielaanvraag = asielaanvraag;
     }
 
-    public boolean isRechterToeGewezen() {
-        return rechterToeGewezen;
-    }
-
-    public void setRechterToeGewezen(boolean rechterToeGewezen) {
-        this.rechterToeGewezen = rechterToeGewezen;
-    }
     public String getUitspraak() {
         return uitspraak;
     }
 
     public void setUitspraak(String uitspraak) {
         this.uitspraak = uitspraak;
-    }
-
-
-    public String getUitspraakGedaan() {
-        return uitspraakGedaan;
-    }
-
-    public void setUitspraakGedaan(String uitspraakGedaan) {
-        this.uitspraakGedaan = uitspraakGedaan;
     }
 
     public boolean isTerugkeert() {
