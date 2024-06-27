@@ -45,12 +45,6 @@ public class Asielzoeker extends Gebruiker {
         } else {
             System.out.println("Asielaanvraag is compleet: nee");
         }
-        if (dossier.isRechterToeGewezen()){
-            System.out.println("Rechter toegewezen: ja");
-        } else {
-            System.out.println("Rechter toegewezen: nee");
-        }
-        System.out.printf("Rechter heeft uitspraak gedaan: %s%n",dossier.getUitspraakGedaan());
         System.out.printf("Plaatsing in eigen woning: %s%n",dossier.getUitspraak());
     }
 

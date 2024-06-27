@@ -25,22 +25,25 @@ public class Beheerder extends Gebruiker{
     @Override
     public void vraagOp() {
         ArrayList<Gemeente> gemeentes = DataSeeder.getInstance().getGemeentes().getGemeentes();
-
-        for (Gemeente gemeente : gemeentes){
-            int aantalInwoners = gemeente.getInwoners();
-            int capaciteit = (int) (aantalInwoners * 0.005);
-            int uitkering;
-
-            if (capaciteit > 100) {
-                uitkering = 2000;
-            } else if (capaciteit < 100) {
-                uitkering = 1000;
-            } else {
-                uitkering = 0;
-            }
+            for (Gemeente gemeente : gemeentes){
+                int capaciteit = gemeente.capaciteit();
+                int uitkering= Getuitkering(gemeente,capaciteit);
             System.out.printf("Gemeente %s: Opvangcapaciteit: %d, Uitkering: €%d%n",
                     gemeente.getNaam(), capaciteit, uitkering);
         }
+    }
+    public int Getuitkering(Gemeente gemeente, int capaciteit) {
+        int uitkering = 0;
+
+        if (capaciteit >= 100) {
+            uitkering = 2000;
+        } else if (capaciteit > 0) {
+            uitkering = 1000;
+        } else if (capaciteit == 0) {
+            uitkering = 0;
+        }
+
+        return uitkering;
     }
 
     @Override

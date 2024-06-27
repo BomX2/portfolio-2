@@ -42,6 +42,9 @@ public class Gemeente {
         return null;
 
     }
+    public int capaciteit (){
+        return (int) (inwoners * 0.005);
+    }
 
     public void addAzcs(Azc azcs) {
         this.azcs.add(azcs);
