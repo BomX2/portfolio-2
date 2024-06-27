@@ -56,6 +56,8 @@ public class Menus {
         menus.add(vluchtelingMenu);
 
         Menu azcmenu = new Menu("u bent ingelogd als Azc medewerker");
+        Menukeuze bericht = new Menukeuze("berichtenbox",new ActieBericht());
+        azcmenu.voegMenukeuzeToe(bericht);
         azcmenu.voegMenukeuzeToe(logout);
         menus.add(azcmenu);
     }
