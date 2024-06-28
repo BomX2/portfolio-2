@@ -10,4 +10,16 @@ public class Bericht {
         this.onderwerp = onderwerp;
         this.info = info;
     }
+
+    public String getNaam() {
+        return naam;
+    }
+
+    public String getOnderwerp() {
+        return onderwerp;
+    }
+
+    public String getInfo() {
+        return info;
+    }
 }

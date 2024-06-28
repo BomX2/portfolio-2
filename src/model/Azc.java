@@ -57,6 +57,29 @@ public class Azc implements Observer {
         vluchtelingen.remove(asielzoeker);
     }
 
+    public Berichtenbox getBerichtenbox() {
+        return berichtenbox;
+    }
+
+    public ArrayList<Kamer> getKamers() {
+        return kamers;
+    }
+
+    public boolean plaatsAsiel (Asielzoeker asielzoeker){
+        for (Kamer kamer : kamers){
+            boolean A = kamer.getCapaciteit() > 0;
+            boolean B = (kamer instanceof GezinsKamer && asielzoeker.isFamilielid()) || (kamer instanceof JongerenKamer && asielzoeker.getLeeftijd() < 18)
+                                   || (kamer instanceof GewoneKamer && asielzoeker.getLeeftijd() >= 18 && !asielzoeker.isFamilielid());
+            boolean C = kamer.getGender().equals(asielzoeker.getGender()) || kamer.getGender().equals("Onbepaald");
+            if (A && B && C) {
+                kamer.verlaagCapaciteit();
+                this.vluchtelingen.add(asielzoeker);
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public void update(Bericht bericht) {
         berichtenbox.voegBericht(bericht);

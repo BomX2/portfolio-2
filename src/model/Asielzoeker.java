@@ -8,8 +8,10 @@ import java.util.ArrayList;
 public class Asielzoeker extends Gebruiker {
     private ArrayList<Observer> observers= new ArrayList<>();
     private Land landVanHerkomst;
-    private String nieuwAdress;
+    private String nieuwAdress, gender;
     private Dossier dossier;
+    private boolean familielid;
+    private int leeftijd;
     private Observable observer;
 
     public Asielzoeker(String naam, Land landVanHerkomst,Dossier dossier){
@@ -28,7 +30,7 @@ public class Asielzoeker extends Gebruiker {
     }
     public void nieuwAdress(String plek) {
         this.nieuwAdress = plek;
-        Bericht bericht = new Bericht("verhuizing" + getNaam(),getNaam(),getNaam() + "is verhuist naar"+ getNieuwAdress());
+        Bericht bericht = new Bericht("verhuizing " + getNaam(),getNaam(),getNaam() + "is verhuist naar"+ getNieuwAdress());
         observer.notifyObservers(bericht);
 
     }
@@ -76,4 +78,17 @@ public class Asielzoeker extends Gebruiker {
     public void setNieuwAdress(String nieuwAdress) {
         this.nieuwAdress = nieuwAdress;
     }
+
+    public boolean isFamilielid() {
+        return familielid;
+    }
+
+    public int getLeeftijd() {
+        return leeftijd;
+    }
+
+    public String getGender() {
+        return gender;
+    }
 }
+

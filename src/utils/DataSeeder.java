@@ -27,17 +27,17 @@ public class DataSeeder {
 
     private void initialize() {
         menus.initializeMenus();
-        gebruikers.initializeGebruikers();
         landen.initializeLanden();
         gemeentes.initializeGemeentes();
+        gebruikers.initializeGebruikers();
     }
 
     private DataSeeder() {
         this.menus = new Menus();
         this.landen = new Landen();
         this.observable = new Observable();
-        this.gebruikers = new Gebruikers(this.landen,observable);
         this.gemeentes = new Gemeentes(observable);
+        this.gebruikers = new Gebruikers(this.landen,observable,this.gemeentes);
         initialize();
     }
 

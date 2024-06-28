@@ -28,8 +28,10 @@ public class Beheerder extends Gebruiker{
             for (Gemeente gemeente : gemeentes){
                 int capaciteit = gemeente.capaciteit();
                 int uitkering= Getuitkering(gemeente,capaciteit);
-            System.out.printf("Gemeente %s: Opvangcapaciteit: %d, Uitkering: €%d%n",
-                    gemeente.getNaam(), capaciteit, uitkering);
+
+                System.out.printf("Gemeente %s: Opvangcapaciteit: %d, Uitkering: €%d%n",
+
+                gemeente.getNaam(), capaciteit, uitkering);
         }
     }
     public int Getuitkering(Gemeente gemeente, int capaciteit) {

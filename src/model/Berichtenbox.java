@@ -12,5 +12,14 @@ public class Berichtenbox{
     public void voegBericht (Bericht bericht) {
         berichten.add(bericht);
     }
+    public ArrayList<Bericht> getBerichten() {
+        return berichten;
+    }
+    public void printBericht (int num){
+        Bericht bericht = berichten.get(num);
 
+        System.out.println(bericht.getOnderwerp());
+        System.out.println(bericht.getNaam());
+        System.out.println(bericht.getInfo());
+    }
 }

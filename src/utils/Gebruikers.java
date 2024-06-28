@@ -8,11 +8,13 @@ public class Gebruikers {
     private Landen landen;
     private final ArrayList<Gebruiker> gebruikers;
     private Observable observable;
+    private Gemeentes gemeentes;
 
-    public Gebruikers(Landen landen, Observable observable) {
+    public Gebruikers(Landen landen, Observable observable, Gemeentes gemeentes) {
         this.landen = landen;
         gebruikers = new ArrayList<>();
         this.observable = observable;
+        this.gemeentes = gemeentes;
     }
     public void initializeGebruikers(){
         Dossier dossierM = new Dossier("mohammad", landen.getLand("israel"), false);
@@ -24,7 +26,7 @@ public class Gebruikers {
         Beheerder beheerder = new Beheerder("tony");
         voegBeheerderToe(beheerder);
 
-        AzcMedewerker azcMedewerker = new AzcMedewerker("kees");
+        AzcMedewerker azcMedewerker = new AzcMedewerker("kees",gemeentes.getGemeente("den haag").getAzc("6542 AB"));
         voegAzcMedewerkerToe(azcMedewerker);
     }
     private void voegGebruikerToe(Gebruiker gebruiker) {
