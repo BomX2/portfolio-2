@@ -1,9 +1,6 @@
 package utils;
 
-import model.Azc;
-import model.AzcMedewerker;
-import model.Gemeente;
-import model.Observable;
+import model.*;
 
 import java.util.ArrayList;
 
@@ -24,6 +21,14 @@ public class Gemeentes {
         Azc azc = new Azc("laan van noi",6,"6542 AB");
         denHaag.addAzcs(azc);
         observable.addObserver(azc);
+
+        GewoneKamer gewoneKamer = new GewoneKamer(2,"","");
+        JongerenKamer jongerenKamer = new JongerenKamer(3,"man","");
+        GezinsKamer gezinsKamer = new GezinsKamer(4,"","");
+
+        azc.addKamers(gewoneKamer);
+        azc.addKamers(jongerenKamer);
+        azc.addKamers(gezinsKamer);
     }
 
     public void setGemeentes (Gemeente gemeente) {

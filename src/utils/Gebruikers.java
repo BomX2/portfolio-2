@@ -18,8 +18,9 @@ public class Gebruikers {
     }
     public void initializeGebruikers(){
         Dossier dossierM = new Dossier("mohammad", landen.getLand("israel"), false);
-        Asielzoeker asielzoeker = new Asielzoeker("amin", landen.getLand("israel"), dossierM,observable);
+        Asielzoeker asielzoeker = new Asielzoeker("amin","man",18, landen.getLand("israel"), dossierM,observable);
         voegAsielzoekerToe(asielzoeker);
+        asielzoeker.setFamilielid(true);
         CaoMedewerker cao = new CaoMedewerker("jan");
         voegMedewerkerToe(cao);
 

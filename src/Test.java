@@ -41,7 +41,7 @@ class Test {
         Land land = new Land("israel",true);
         Dossier dossier = new Dossier("jan",land,false);
 
-        Asielzoeker asielzoeker = caoMedewerker.registreerVluchteling(dossier);
+        Asielzoeker asielzoeker = caoMedewerker.registreerVluchteling(dossier,"man",18);
 
         assertNotNull(asielzoeker.getDossier());
         assertEquals(dossier.getNaam(),asielzoeker.getNaam());

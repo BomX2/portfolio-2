@@ -18,6 +18,7 @@ public class Azc implements Observer {
         this.postcode = postcode;
         vluchtelingen = new ArrayList<>();
         berichtenbox = new Berichtenbox();
+        kamers = new ArrayList<>();
     }
 
     public int getNummer() {
@@ -65,12 +66,16 @@ public class Azc implements Observer {
         return kamers;
     }
 
+    public void addKamers(Kamer kamer) {
+        kamers.add(kamer);
+    }
+
     public boolean plaatsAsiel (Asielzoeker asielzoeker){
         for (Kamer kamer : kamers){
             boolean A = kamer.getCapaciteit() > 0;
             boolean B = (kamer instanceof GezinsKamer && asielzoeker.isFamilielid()) || (kamer instanceof JongerenKamer && asielzoeker.getLeeftijd() < 18)
                                    || (kamer instanceof GewoneKamer && asielzoeker.getLeeftijd() >= 18 && !asielzoeker.isFamilielid());
-            boolean C = kamer.getGender().equals(asielzoeker.getGender()) || kamer.getGender().equals("Onbepaald");
+            boolean C = kamer.getGender().equals(asielzoeker.getGender()) || kamer.getGender().equals("");
             if (A && B && C) {
                 kamer.verlaagCapaciteit();
                 this.vluchtelingen.add(asielzoeker);

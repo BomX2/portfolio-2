@@ -14,11 +14,11 @@ public class CaoMedewerker extends Gebruiker {
         asielzoekers = new ArrayList<>();
     }
 
-    public Asielzoeker registreerVluchteling (Dossier dossier) {
+    public Asielzoeker registreerVluchteling (Dossier dossier,String gender,int leeftijd) {
 
         String naam = dossier.getNaam();
         Land land = dossier.getLandVanHerkomst();
-        Asielzoeker asielzoeker = new Asielzoeker(naam,land,dossier);
+        Asielzoeker asielzoeker = new Asielzoeker(naam,gender,leeftijd,land,dossier);
         return asielzoeker;
     }
     public void werkDosierBij(String naam,String paspoort, String asiel, String uitspraak, String keertterug){

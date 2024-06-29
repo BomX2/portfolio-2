@@ -57,6 +57,8 @@ public class Menus {
 
         Menu azcmenu = new Menu("u bent ingelogd als Azc medewerker");
         Menukeuze bericht = new Menukeuze("berichtenbox",new ActieBericht());
+        Menukeuze plaats = new Menukeuze("plaats asielzoeker",new ActiePlaats());
+        azcmenu.voegMenukeuzeToe(plaats);
         azcmenu.voegMenukeuzeToe(bericht);
         azcmenu.voegMenukeuzeToe(logout);
         menus.add(azcmenu);

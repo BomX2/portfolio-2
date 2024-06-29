@@ -14,15 +14,19 @@ public class Asielzoeker extends Gebruiker {
     private int leeftijd;
     private Observable observer;
 
-    public Asielzoeker(String naam, Land landVanHerkomst,Dossier dossier){
+    public Asielzoeker(String naam,String gender,int leeftijd, Land landVanHerkomst,Dossier dossier){
         super(naam);
+        this.gender = gender;
+        this.leeftijd = leeftijd;
         this.landVanHerkomst = landVanHerkomst;
         this.dossier = dossier;
         this.nieuwAdress = null;
 
     }
-    public Asielzoeker(String naam, Land landVanHerkomst,Dossier dossier,Observable observable) {
+    public Asielzoeker(String naam,String gender,int leeftijd, Land landVanHerkomst,Dossier dossier,Observable observable) {
         super(naam);
+        this.gender = gender;
+        this.leeftijd = leeftijd;
         this.landVanHerkomst = landVanHerkomst;
         this.dossier = dossier;
         this.nieuwAdress = null;
@@ -89,6 +93,10 @@ public class Asielzoeker extends Gebruiker {
 
     public String getGender() {
         return gender;
+    }
+
+    public void setFamilielid(boolean familielid) {
+        this.familielid = familielid;
     }
 }
 
