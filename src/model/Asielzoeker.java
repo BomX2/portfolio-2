@@ -6,7 +6,6 @@ import utils.*;
 import java.util.ArrayList;
 
 public class Asielzoeker extends Gebruiker {
-    private ArrayList<Observer> observers= new ArrayList<>();
     private Land landVanHerkomst;
     private String nieuwAdress, gender;
     private Dossier dossier;

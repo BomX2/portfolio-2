@@ -18,17 +18,18 @@ public class ActieWerkBij implements IActie {
         String naam = scanner.nextLine();
         System.out.println("is er een paspoort getoond");
         System.out.println("ja on nee");
-        String paspoort = scanner.nextLine();
+        boolean paspoort = seeder.JaOfNee(scanner.nextLine());
         System.out.println("is de asielaanvraag compleet");
         System.out.println("ja on nee");
-        String asiel = scanner.nextLine();
+        boolean asiel = seeder.JaOfNee(scanner.nextLine());
         System.out.println("Wat is de uitspraak");
         String uitspraak = scanner.nextLine();
         System.out.println("keert de vluchteling terug");
         System.out.println("ja on nee");
-        String keertterug = scanner.nextLine();
+        boolean keertterug = seeder.JaOfNee(scanner.nextLine());
 
-        caoMedewerker.werkDosierBij(naam,paspoort,asiel,uitspraak,keertterug);
-
+        Asielzoeker asielzoeker = (Asielzoeker) DataSeeder.getInstance().getGebruikers().getVluchtelingBijNaam(naam);
+        Dossier dossier = caoMedewerker.werkDosierBij(naam,asielzoeker.getLandVanHerkomst(),paspoort,asiel,uitspraak,keertterug);
+        asielzoeker.setDossier(dossier);
 }
 }

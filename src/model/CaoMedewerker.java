@@ -21,14 +21,12 @@ public class CaoMedewerker extends Gebruiker {
         Asielzoeker asielzoeker = new Asielzoeker(naam,gender,leeftijd,land,dossier);
         return asielzoeker;
     }
-    public void werkDosierBij(String naam,String paspoort, String asiel, String uitspraak, String keertterug){
-        DataSeeder seeder = DataSeeder.getInstance();
-        Asielzoeker asielzoeker = (Asielzoeker) DataSeeder.getInstance().getGebruikers().getVluchtelingBijNaam(naam);
-        boolean paspoort1 = seeder.JaOfNee(paspoort);
-        boolean asiel1 = seeder.JaOfNee(asiel);
-        boolean keert = seeder.JaOfNee(keertterug);
-        Dossier dossier = new Dossier(asielzoeker.getNaam(),asielzoeker.getLandVanHerkomst(),paspoort1,asiel1,uitspraak,keert);
-        asielzoeker.setDossier(dossier);
+    public Dossier werkDosierBij(String naam,Land land,boolean paspoort, boolean asiel, String uitspraak, boolean keertterug){
+        boolean paspoort1 = paspoort;
+        boolean asiel1 = asiel;
+        boolean keert = keertterug;
+        Dossier dossier = new Dossier(naam,land,paspoort1,asiel1,uitspraak,keert);
+        return dossier;
     }
 
     @Override

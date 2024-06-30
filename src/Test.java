@@ -76,4 +76,32 @@ class Test {
         assertEquals(2000,uitkering6);
         assertEquals(0,uitkering7);
     }
+    @org.junit.jupiter.api.Test
+    void plaatsAsiel(){
+        Azc azc = new Azc("laan van nooi",4," 6452 DC");
+        Azc azc2 = new Azc("laan van nooi",4," 6352 DC");
+        GezinsKamer gezinsKamer = new GezinsKamer(1,"","");
+        GezinsKamer gezinsKamer1 = new GezinsKamer(0,"","");
+        JongerenKamer jongerenKamer = new JongerenKamer(1,"","");
+        GewoneKamer gewoneKamer = new GewoneKamer(1,"man","");
+        azc.addKamers(gewoneKamer);
+        azc.addKamers(gezinsKamer);
+        azc.addKamers(jongerenKamer);
+        azc.addKamers(gezinsKamer1);
+
+        Land land = new Land("TestLand", true);
+        Dossier dossier = new Dossier("Gezin1",land, true);
+
+        Asielzoeker asielzoeker = new Asielzoeker("jan","",30,land,dossier);
+        asielzoeker.setFamilielid(true);
+
+        Asielzoeker asielzoeker1 = new Asielzoeker("kees","iets anders",30,land,dossier);
+
+        Asielzoeker asielzoeker2 = new Asielzoeker("arno","",25,land,dossier);
+
+        assertTrue(azc.plaatsAsiel(asielzoeker));
+        assertFalse(azc.plaatsAsiel(asielzoeker1));
+        assertFalse(azc.plaatsAsiel(asielzoeker2));
+        assertFalse(azc2.plaatsAsiel(asielzoeker));
+    }
 }
