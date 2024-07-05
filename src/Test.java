@@ -83,7 +83,7 @@ class Test {
         GezinsKamer gezinsKamer = new GezinsKamer(1,"","");
         GezinsKamer gezinsKamer1 = new GezinsKamer(0,"","");
         JongerenKamer jongerenKamer = new JongerenKamer(1,"","");
-        GewoneKamer gewoneKamer = new GewoneKamer(1,"man","");
+        GewoneKamer gewoneKamer = new GewoneKamer(1,"man","",true);
         azc.addKamers(gewoneKamer);
         azc.addKamers(gezinsKamer);
         azc.addKamers(jongerenKamer);

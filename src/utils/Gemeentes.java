@@ -22,7 +22,7 @@ public class Gemeentes {
         denHaag.addAzcs(azc);
         observable.addObserver(azc);
 
-        GewoneKamer gewoneKamer = new GewoneKamer(2,"","");
+        GewoneKamer gewoneKamer = new GewoneKamer(2,"","",false);
         JongerenKamer jongerenKamer = new JongerenKamer(3,"man","");
         GezinsKamer gezinsKamer = new GezinsKamer(4,"","");
 

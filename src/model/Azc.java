@@ -67,6 +67,7 @@ public class Azc implements Observer {
     }
 
     public void addKamers(Kamer kamer) {
+        kamer.verlaagCapaciteit();
         kamers.add(kamer);
     }
 
@@ -77,10 +78,37 @@ public class Azc implements Observer {
                                    || (kamer instanceof GewoneKamer && asielzoeker.getLeeftijd() >= 18 && !asielzoeker.isFamilielid());
             boolean C = kamer.getGender().equals(asielzoeker.getGender()) || kamer.getGender().equals("");
             if (A && B && C) {
-                kamer.verlaagCapaciteit();
                 this.vluchtelingen.add(asielzoeker);
                 return true;
             }
+        }
+        return false;
+    }
+
+    public void assignRoomToRefugee(Asielzoeker asielzoeker) {
+        for (Kamer room : kamers) {
+            if (ispassend(room, asielzoeker)) {
+                this.vluchtelingen.add(asielzoeker);
+            }
+        }
+    }
+
+    private boolean ispassend(Kamer kamer, Asielzoeker asielzoeker) {
+        // Decision point 1: Is the refugee part of a family and is the room a family room with sufficient capacity?
+        if (asielzoeker.isFamilielid() && kamer instanceof GezinsKamer && kamer.getCapaciteit() >= 2) {
+            return true;
+        }
+        // Decision point 2: Is the room a single room with one bed, and does the gender match?
+        if (kamer instanceof GewoneKamer && kamer.getCapaciteit() == 1 && kamer.getGender().equals(asielzoeker.getGender())) {
+            return true;
+        }
+        // Decision point 3: Is the room a youth room and is the refugee under 18?
+        if (kamer instanceof JongerenKamer && asielzoeker.getLeeftijd() >= 18) {
+            return true;
+        }
+        // Decision point 4: Is the room a general room and does the safety status match?
+        if (kamer instanceof GewoneKamer && kamer.isBestemdVoorVeilig() == asielzoeker.getLandVanHerkomst().isVeilig()) {
+            return true;
         }
         return false;
     }
