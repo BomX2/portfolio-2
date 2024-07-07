@@ -37,10 +37,12 @@ public class Menus {
         Menukeuze veilig = new Menukeuze("wijzig veiligheid van een land", new ActieVeilig());
         Menukeuze voegGemeente = new Menukeuze("voeg een nieuwe gemeente toe", new ActieGemeente());
         Menukeuze vraagOpB = new Menukeuze("vraag rapportage op van een gemeente", new ActieVraagOpB());
+        Menukeuze uitkering = new Menukeuze("reken uitkering uit",new ActieUitkering());
         beheerderMenu.voegMenukeuzeToe(voegLand);
         beheerderMenu.voegMenukeuzeToe(veilig);
         beheerderMenu.voegMenukeuzeToe(voegGemeente);
         beheerderMenu.voegMenukeuzeToe(vraagOpB);
+        beheerderMenu.voegMenukeuzeToe(uitkering);
         beheerderMenu.voegMenukeuzeToe(logout);
         menus.add(beheerderMenu);
 

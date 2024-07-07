@@ -104,4 +104,24 @@ class Test {
         assertFalse(azc.plaatsAsiel(asielzoeker2));
         assertFalse(azc2.plaatsAsiel(asielzoeker));
     }
+
+    @org.junit.jupiter.api.Test
+    void getuitkeringExtra() {
+        Beheerder beheerder = new Beheerder("jan");
+
+        Double een = beheerder.getuitkeringExtra(500, 300, 120, 110);
+        Double twee = beheerder.getuitkeringExtra(500, 100, 60, 90);
+        Double drie = beheerder.getuitkeringExtra(1500, 500, 120, 110);
+        Double vier = beheerder.getuitkeringExtra(1500, 800, 60, 90);
+        Double vijf = beheerder.getuitkeringExtra(5001, 2000, 120, 110);
+        Double zes = beheerder.getuitkeringExtra(5001, 4000, 60, 90);
+
+        assertEquals(4000.0,een);
+        assertEquals(500.0,twee);
+        assertEquals(3500.0,drie);
+        assertEquals(2000.0,vier);
+        assertEquals(4000.0,vijf);
+        assertEquals(2500.0,zes);
+
+    }
 }

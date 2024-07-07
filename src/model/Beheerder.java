@@ -27,7 +27,7 @@ public class Beheerder extends Gebruiker{
         ArrayList<Gemeente> gemeentes = DataSeeder.getInstance().getGemeentes().getGemeentes();
             for (Gemeente gemeente : gemeentes){
                 int capaciteit = gemeente.capaciteit();
-                int uitkering= Getuitkering(gemeente,capaciteit);
+                double uitkering = Getuitkering(gemeente,capaciteit);
 
                 System.out.printf("Gemeente %s: Opvangcapaciteit: %d, Uitkering: €%d%n",
 
@@ -43,6 +43,36 @@ public class Beheerder extends Gebruiker{
             uitkering = 1000;
         } else if (capaciteit == 0) {
             uitkering = 0;
+        }
+
+        return uitkering;
+    }
+
+    public double getuitkeringExtra(int inwoners, int vluchtelingen, int extravluchtelingen, int azcCapaciteit) {
+        double basis = 1000.0;
+        double extra = 2000.0;
+        double capaciteitBonus = 500.0;
+
+        double uitkering = 0.0;
+
+        if (inwoners < 1000) {
+            uitkering += 500;
+        } else if (inwoners <= 5000) {
+            uitkering += 1000;
+        } else {
+            uitkering += 1500;
+        }
+
+        if (vluchtelingen >= 0.5 * inwoners) {
+            uitkering += basis;
+        }
+
+        if (extravluchtelingen > 100) {
+            uitkering +=  extra;
+        }
+
+        if (azcCapaciteit >= 100) {
+            uitkering += capaciteitBonus;
         }
 
         return uitkering;
